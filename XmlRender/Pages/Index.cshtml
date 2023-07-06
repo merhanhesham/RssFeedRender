@@ -1,0 +1,25 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Feed";
+}
+
+
+    
+@foreach (var item in Model.RssItems)
+{
+<div class="item p-3" >
+    <div style="border: solid 2px black" class="p-3">
+    <h1 class="item-date">@item.PubDate</h1>
+    @if (!string.IsNullOrEmpty(item.Title))
+    {
+        <h2>@item.Title</h2>
+    }
+    <p >@Html.Raw(@item.Description)</p>
+    <button class="btn btn-info d-flex" ><a href="@item.Link" style="text-decoration:none" class="text-black">Article</a></button>
+    </div>
+</div>
+}
+    
+
+
